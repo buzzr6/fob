@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			var STREAM_PATH = 'http://localhost:7070'
+			
+			$(function(){
+				//Stream (off LMI)
+				//$('#stream').load(STREAM_PATH);
+				
+				
+			});
+			
+			window.setInterval(function(){
+				//Refresh IED trace img
+				d = new Date();
+				$("#ied").attr("src", "plot.jpg?"+d.getTime());
+				$("#ied").attr("alt", d.getTime());
+			}, 500);
+		</script>
+	</head>
+	<body>
+		<!--div id="iedTrace" style="height:100;width:100;background-color:#502D0E;float:left;margin:10px;"></div-->
+		<table width="100%" style="border-spacing: 20px 0;">
+			<tr>
+				<td style="text-align:center">
+					<h1>Live IED Trace</h1>
+				</td>
+				<td style="text-align:center">
+					<h1>Live Stream of QGC Visuals</h1>
+				</td>
+			</tr>
+				<td width="25%" style="vertical-align:top;">
+					<img id="ied" src="" alt="Image Not Found" style="width:100%;float:left;margin:10px;" alt="" />
+				</td>
+				<td width="100%">
+					<iframe src="http://localhost:7070" width="100%" height="600px" style="margin:10px;vertical-align:top;" />
+				</td>
+			</tr>
+		</table>
+		<br />
+		<div id="stream" />
+	</body>
+</html>
