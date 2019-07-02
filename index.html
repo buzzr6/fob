@@ -1,0 +1,45 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			window.setInterval(function(){
+				//Refresh IED trace img
+				d = new Date();
+				$("#ied").attr("src", "plot.jpg?"+d.getTime());
+				$("#ied").attr("alt", d.getTime());
+			}, 500);
+		</script>
+		<style>
+			body{
+				background-color:black;
+				color:white;
+				text-align:center;
+			}
+			div{
+				//padding:5px;
+			}
+			
+			h2{
+				display:none;
+			}
+			
+			.t { position: absolute; top: 0; left: 0; right: 0%; bottom: 50%; }
+			.bl { position: absolute; top: 50%; left: 0; right: 70%; bottom: 0; }
+			.br { position: absolute; top: 50%; left: 30%; right: 0; bottom: 0; } 
+		</style>
+	</head>
+	<body>
+		<div class="t">
+			<h2>Live Stream of QGC Visuals</h2>
+			<iframe src="http://localhost:7070" width="100%" height="100%" style="vertical-align:top;"></iframe>
+		</div>
+		<div class="bl">
+			<h2>Live IED Trace</h2>
+			<img id="ied" src="" alt="Image Not Found" style="width:100%;height:100%" alt=""></iframe>
+		</div>
+		<div class="br">
+			<h2>Live Camera Feed</h2>
+			<iframe src="http://192.168.0.101:8090/" width="100%" height="100%" style="vertical-align:top;"></iframe>
+		</div>
+	</body>
+</html>
